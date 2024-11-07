@@ -1,150 +1,60 @@
-/* Enlace a Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/* Reset básico */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif; /* Fuente profesional */
-    text-transform: uppercase; /* Aplica mayúsculas a todos los textos */
-    text-align: center; /* Centra todos los textos */
-}
-
-/* Estilo de fondo y contenedor */
 body {
-    background-color: #1C1E26; /* Fondo oscuro profesional */
-    color: #F5F5F5; /* Color de texto blanco suave */
+    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
     margin: 0;
-}
-
-.container {
-    width: 90%;
-    max-width: 600px;
-    background-color: #2A2D37; /* Fondo del contenedor en gris oscuro */
-    border-radius: 8px;
     padding: 20px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra el contenido dentro del contenedor */
 }
 
-/* Encabezado */
-header h1 {
-    text-align: center;
+h1, h2 {
+    color: #333;
+}
+
+#app {
+    width: 100%;
+    max-width: 600px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 20px;
-    font-size: 1.8em;
-    color: #F5F5F5;
 }
 
-/* Botones */
-button {
-    width: 100%;
-    margin: 10px 0;
-    padding: 12px;
-    border: 2px solid #6C7A89; /* Borde gris suave */
-    border-radius: 5px;
-    background-color: #4E5D6C; /* Azul grisáceo para botones */
-    color: #F5F5F5;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.3s, box-shadow 0.3s; /* Transición suave */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra en los botones */
+form label {
+    font-weight: bold;
 }
 
-button:hover {
-    background-color: #3A4756; /* Color de fondo más oscuro al pasar el cursor */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6); /* Sombra más profunda */
-}
-
-/* Ocultar secciones por defecto */
-.hidden {
-    display: none;
-}
-
-/* Campos de texto y selección */
-textarea, select {
-    width: 100%;
+form input, form textarea, form button {
     padding: 10px;
-    margin: 10px 0;
-    background-color: #1C1E26;
-    border: 1px solid #6C7A89; /* Borde gris suave */
-    border-radius: 5px;
-    color: #F5F5F5;
-    text-align: center; /* Centra el texto dentro de los campos */
+    font-size: 1em;
 }
 
-select {
-    margin: 0 auto; /* Centra la lista desplegable */
-    text-align-last: center; /* Centra las opciones dentro del select en navegadores compatibles */
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
 }
 
-/* Contenedor de fotos */
-.photo-container {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra el contenido dentro del contenedor de fotos */
+form button:hover {
+    background-color: #45a049;
 }
 
-/* Estilo para video y canvas */
-video, canvas {
-    width: 200px; /* Tamaño reducido para vista previa */
-    height: auto;
-    border-radius: 8px;
-    margin-top: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para el video/canvas */
-}
-
-/* Estilo para la tabla del historial */
 table {
     width: 100%;
-    margin-top: 10px;
     border-collapse: collapse;
 }
 
-table th, table td {
-    padding: 10px;
-    border: 1px solid #6C7A89;
-    text-align: center; /* Centra el contenido de la tabla */
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
-table th {
-    background-color: #2A2D37; /* Fondo de encabezado de tabla */
-    color: #F5F5F5;
-}
-
-/* Estilo del modal para ampliar imagen */
-.modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-}
-
-.modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 8px;
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #F5F5F5;
-    font-size: 2em;
-    font-weight: bold;
-    cursor: pointer;
+th {
+    background-color: #f2f2f2;
+    text-align: left;
 }
