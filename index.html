@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Camionetas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        button {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        #registroForm, #consultaForm {
+            display: none;
+            margin-top: 20px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Camionetas</h1>
+        
+        <div id="mainMenu">
+            <button onclick="mostrarRegistro('verificacion')">Registrar Verificación</button>
+            <button onclick="mostrarRegistro('mantenimiento')">Registrar Mantenimiento</button>
+            <button onclick="mostrarConsulta()">Consultar Registros de Unidad</button>
+        </div>
+
+        <div id="registroForm">
+            <h2 id="registroTitulo">Registrar</h2>
+            <label for="unidad">Seleccionar Unidad:</label>
+            <select id="unidad">
+                <option value="unidad1">Unidad 1</option>
+                <option value="unidad2">Unidad 2</option>
+                <option value="unidad3">Unidad 3</option>
+            </select>
+
+            <div id="mantenimientoFields">
+                <label for="tipoMantenimiento">Tipo de Mantenimiento:</label>
+                <input type="text" id="tipoMantenimiento" placeholder="Escribe el tipo de mantenimiento">
+            </div>
+
+            <button onclick="capturarFoto()">Capturar Comprobante</button>
+            <button onclick="guardarRegistro()">Guardar Registro</button>
+            <button class="back-button" onclick="mostrarMenuPrincipal()">Volver al Menú Principal</button>
+        </div>
+
+        <div id="consultaForm">
+            <h2>Consultar Historial de Unidad</h2>
+            <label for="unidadConsulta">Seleccionar Unidad:</label>
+            <select id="unidadConsulta">
+                <option value="unidad1">Unidad 1</option>
+                <option value="unidad2">Unidad 2</option>
+                <option value="unidad3">Unidad 3</option>
+            </select>
+            <button onclick="mostrarHistorial()">Ver Historial</button>
+            <div id="historialContainer"></div>
+            <button class="back-button" onclick="mostrarMenuPrincipal()">Volver al Menú Principal</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
