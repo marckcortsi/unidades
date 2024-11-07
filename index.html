@@ -3,90 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitácora de Unidades</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Registro de Camionetas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Bitácora de Unidades</h1>
-        </header>
-        <main>
-            <!-- Botones principales -->
-            <div id="mainButtons">
-                <button id="verificacionesBtn">Verificaciones</button>
-                <button id="mantenimientosBtn">Servicios y Mantenimientos</button>
-                <button id="historialBtn">Ver Historial de Unidades</button>
-            </div>
-            
-            <!-- Sección Verificaciones -->
-            <section id="verificacionesSection" class="hidden">
-                <h2>Verificaciones</h2>
-                <label for="unidadVerificaciones">Selecciona la unidad a registrar:</label>
-                <select id="unidadVerificaciones">
-                    <option value="Unidad 1">Unidad 1</option>
-                    <option value="Unidad 2">Unidad 2</option>
-                    <option value="Unidad 3">Unidad 3</option>
-                </select>
-                <div id="fotoVerificacionContainer" class="photo-container">
-                    <button id="agregarFotoVerificacion">Agregar foto de comprobante</button>
-                    <video id="video" class="hidden"></video>
-                    <canvas id="canvas" class="hidden"></canvas>
-                    <button id="capturarFoto" class="hidden">Capturar</button>
-                </div>
-                <textarea id="observacionesVerificaciones" placeholder="Escribe observaciones"></textarea>
-                <button id="guardarVerificacion">Guardar Registro</button>
-                <button class="regresarBtn" onclick="showMainButtons()">Regresar al inicio</button>
-            </section>
+    <h1>Registro de Camionetas</h1>
+    <div id="app">
+        <!-- Formulario para añadir un registro -->
+        <form id="registroForm">
+            <label for="unidad">Unidad:</label>
+            <input type="text" id="unidad" name="unidad" required>
 
-            <!-- Sección Servicios y Mantenimientos -->
-            <section id="mantenimientosSection" class="hidden">
-                <h2>Servicios y Mantenimientos</h2>
-                <label for="unidadMantenimientos">Selecciona la unidad a registrar:</label>
-                <select id="unidadMantenimientos">
-                    <option value="Unidad 1">Unidad 1</option>
-                    <option value="Unidad 2">Unidad 2</option>
-                    <option value="Unidad 3">Unidad 3</option>
-                </select>
-                <div id="fotoMantenimientoContainer" class="photo-container">
-                    <button id="agregarFotoMantenimiento">Agregar foto de comprobante</button>
-                    <video id="videoMantenimiento" class="hidden"></video>
-                    <canvas id="canvasMantenimiento" class="hidden"></canvas>
-                    <button id="capturarFotoMantenimiento" class="hidden">Capturar</button>
-                </div>
-                <textarea id="observacionesMantenimientos" placeholder="Escribe observaciones"></textarea>
-                <button id="guardarMantenimiento">Guardar Registro</button>
-                <button class="regresarBtn" onclick="showMainButtons()">Regresar al inicio</button>
-            </section>
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" name="observaciones" required></textarea>
 
-            <!-- Sección Historial -->
-            <section id="historialSection" class="hidden">
-                <h2>Registros</h2>
-                <label for="unidadHistorial">Selecciona la unidad a consultar:</label>
-                <select id="unidadHistorial">
-                    <option value="Unidad 1">Unidad 1</option>
-                    <option value="Unidad 2">Unidad 2</option>
-                    <option value="Unidad 3">Unidad 3</option>
-                </select>
-                <button id="mostrarRegistros">Mostrar Registros</button>
-                <table id="historialTable" class="hidden">
-                    <thead>
-                        <tr>
-                            <th>Tipo de registro</th>
-                            <th>Foto</th>
-                            <th>Observaciones</th>
-                            <th>Fecha y Hora</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <button class="regresarBtn" onclick="showMainButtons()">Regresar al inicio</button>
-            </section>
-        </main>
+            <button type="submit">Guardar Registro</button>
+        </form>
+
+        <!-- Tabla para mostrar los registros -->
+        <h2>Registros Guardados</h2>
+        <table id="registrosTable">
+            <thead>
+                <tr>
+                    <th>Unidad</th>
+                    <th>Observaciones</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se insertarán los registros -->
+            </tbody>
+        </table>
     </div>
 
-   
-
-    <script src="script.js"></script>
+    <script src="app.js" type="module"></script>
 </body>
 </html>
