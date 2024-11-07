@@ -3,78 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Camionetas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-        }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-        }
-        button {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        #registroForm, #consultaForm {
-            display: none;
-            margin-top: 20px;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 10px;
-        }
-    </style>
+    <title>Bitácora de Unidades</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Registro de Camionetas</h1>
-        
-        <div id="mainMenu">
-            <button onclick="mostrarRegistro('verificacion')">Registrar Verificación</button>
-            <button onclick="mostrarRegistro('mantenimiento')">Registrar Mantenimiento</button>
-            <button onclick="mostrarConsulta()">Consultar Registros de Unidad</button>
-        </div>
-
-        <div id="registroForm">
-            <h2 id="registroTitulo">Registrar</h2>
-            <label for="unidad">Seleccionar Unidad:</label>
-            <select id="unidad">
-                <option value="unidad1">Unidad 1</option>
-                <option value="unidad2">Unidad 2</option>
-                <option value="unidad3">Unidad 3</option>
-            </select>
-
-            <div id="mantenimientoFields">
-                <label for="tipoMantenimiento">Tipo de Mantenimiento:</label>
-                <input type="text" id="tipoMantenimiento" placeholder="Escribe el tipo de mantenimiento">
+        <header>
+            <h1>Bitácora de Unidades</h1>
+        </header>
+        <main>
+            <!-- Botones principales -->
+            <div id="mainButtons">
+                <button id="verificacionesBtn">Verificaciones</button>
+                <button id="mantenimientosBtn">Servicios y Mantenimientos</button>
+                <button id="historialBtn">Ver Historial de Unidades</button>
             </div>
+            
+            <!-- Sección Verificaciones -->
+            <section id="verificacionesSection" class="hidden">
+                <h2>Verificaciones</h2>
+                <label for="unidadVerificaciones">Selecciona la unidad a registrar:</label>
+                <select id="unidadVerificaciones">
+                    <option value="Unidad 1">Unidad 1</option>
+                    <option value="Unidad 2">Unidad 2</option>
+                    <option value="Unidad 3">Unidad 3</option>
+                </select>
+                <div id="fotoVerificacionContainer" class="photo-container">
+                    <button id="agregarFotoVerificacion">Agregar foto de comprobante</button>
+                    <video id="video" class="hidden"></video>
+                    <canvas id="canvas" class="hidden"></canvas>
+                    <button id="capturarFoto" class="hidden">Capturar</button>
+                </div>
+                <textarea id="observacionesVerificaciones" placeholder="Escribe observaciones"></textarea>
+                <button id="guardarVerificacion">Guardar Registro</button>
+                <button class="regresarBtn" onclick="showMainButtons()">Regresar al inicio</button>
+            </section>
 
-            <button onclick="capturarFoto()">Capturar Comprobante</button>
-            <button onclick="guardarRegistro()">Guardar Registro</button>
-            <button class="back-button" onclick="mostrarMenuPrincipal()">Volver al Menú Principal</button>
-        </div>
+            <!-- Sección Servicios y Mantenimientos -->
+            <section id="mantenimientosSection" class="hidden">
+                <h2>Servicios y Mantenimientos</h2>
+                <label for="unidadMantenimientos">Selecciona la unidad a registrar:</label>
+                <select id="unidadMantenimientos">
+                    <option value="Unidad 1">Unidad 1</option>
+                    <option value="Unidad 2">Unidad 2</option>
+                    <option value="Unidad 3">Unidad 3</option>
+                </select>
+                <div id="fotoMantenimientoContainer" class="photo-container">
+                    <button id="agregarFotoMantenimiento">Agregar foto de comprobante</button>
+                    <video id="videoMantenimiento" class="hidden"></video>
+                    <canvas id="canvasMantenimiento" class="hidden"></canvas>
+                    <button id="capturarFotoMantenimiento" class="hidden">Capturar</button>
+                </div>
+                <textarea id="observacionesMantenimientos" placeholder="Escribe observaciones"></textarea>
+                <button id="guardarMantenimiento">Guardar Registro</button>
+                <button class="regresarBtn" onclick="showMainButtons()">Regresar al inicio</button>
+            </section>
 
-        <div id="consultaForm">
-            <h2>Consultar Historial de Unidad</h2>
-            <label for="unidadConsulta">Seleccionar Unidad:</label>
-            <select id="unidadConsulta">
-                <option value="unidad1">Unidad 1</option>
-                <option value="unidad2">Unidad 2</option>
-                <option value="unidad3">Unidad 3</option>
-            </select>
-            <button onclick="mostrarHistorial()">Ver Historial</button>
-            <div id="historialContainer"></div>
-            <button class="back-button" onclick="mostrarMenuPrincipal()">Volver al Menú Principal</button>
-        </div>
+            <!-- Sección Historial -->
+            <section id="historialSection" class="hidden">
+                <h2>Registros</h2>
+                <label for="unidadHistorial">Selecciona la unidad a consultar:</label>
+                <select id="unidadHistorial">
+                    <option value="Unidad 1">Unidad 1</option>
+                    <option value="Unidad 2">Unidad 2</option>
+                    <option value="Unidad 3">Unidad 3</option>
+                </select>
+                <button id="mostrarRegistros">Mostrar Registros</button>
+                <table id="historialTable" class="hidden">
+                    <thead>
+                        <tr>
+                            <th>Tipo de registro</th>
+                            <th>Foto</th>
+                            <th>Observaciones</th>
+                            <th>Fecha y Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <button class="regresarBtn" onclick="showMainButtons()">Regresar al inicio</button>
+            </section>
+        </main>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Modal para imagen ampliada -->
+    <div id="imageModal" class="modal hidden">
+        <span id="closeModal" class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
